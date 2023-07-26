@@ -1,0 +1,55 @@
+.stock-container{
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+  .stock-row{
+    display: flex;
+    flex-direction: row;
+    justify-items:start;
+    align-items: center;
+    height: 80px;
+    border-bottom: 1px solid #d7d7d7;
+    width: 900px;
+  }
+  
+  .stock{
+    display: flex;
+    align-items: center;
+    padding-right: 24px;
+    min-width: 300px;
+  } 
+  
+  .stock-data{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .stock-price{
+    width: 100%;
+  }
+  
+  .stock-volume{
+    width: 100%;
+  }
+  
+  .stock-marketcap{
+  
+    width:240px;
+  }
+  
+  .stock-percent{
+    width:80px;
+  }
+  
+  .red{
+    color: #f00606;
+  }
+  
+  .green{
+    color:#11d811;
+  }
+  

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body{
+  background-color: #1a1a1c;
+  background-image: url('https://source.unsplash.com/random/1920x1080/?stocks');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  
+
+}
+.app{
+  background: #000000d0;
+  padding: 1em;
+  border-radius: 30px;
+  width: 65%;
+  margin: 1rem auto;
+}
+.stock-app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 64px;
+  color: #fff;
+  /* background: #000000d0;
+  border-radius: 30px; */
+
+}
+
+.stock-search{
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stock-text{
+  margin-bottom: 32px;
+  text-align: center;
+}
+.stock-input{
+  margin: 5px 10px;
+  padding-left: 16px;
+  width: 200px;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  background-image: linear-gradient(-225deg, #ac32e4 0%, #7918f2 48%, #4801ff 100%);
+    color: #e2e2e2;
+}
+
+.stock-input::placeholder{
+  color: #e2e2e2;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  /* display: none;
+  -webkit-appearance: none; */
+  color: white;
+  opacity: 1;
+  background-image: url('https://cdn-icons-png.flaticon.com/128/294/294307.png');
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: .5rem;
+}
