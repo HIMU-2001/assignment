@@ -37,7 +37,7 @@ app.post('/api/fetchStockData', async (req, res) => {
         var token = stock.toUpperCase();
         console.log(token);
         const params = {
-            apiKey : '8MGan1OR6p4CaL0sOFOLOBpazt57ArPL'
+            apiKey : 'VnKLHY8KKZfZQ4yOi2KkjfebK4lNzKwU'
         }
 
         
@@ -53,27 +53,34 @@ app.post('/api/fetchStockData', async (req, res) => {
         console.log(formattedToday);
 
 
-        if(date<formattedToday){
-            const url = 'https://api.polygon.io/v2/aggs/ticker/'+token+'/range/1/day/'+date+'/'+date;
-        // const url = 'https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09'
-
-            const response = await axios.get(url, { params });
-            console.log(Object.keys(response.data).length);
-            if(Object.keys(response.data).length===8){
-                
-                const data = response.data.results[0];
-                console.log(data);
-                res.send(data);
-            }
-
-            else{
-                console.log("WRONG TOKEN");
-                res.sendStatus(404);
-            }
+        if(stock=="" || date==""){
+            console.log("EMPTY");
+            res.sendStatus(404);
         }
         else{
-            console.log("DATE EXCEEDED");
-            res.sendStatus(404);
+            console.log("IN ELSE");
+            if(date<formattedToday){
+                const url = 'https://api.polygon.io/v2/aggs/ticker/'+token+'/range/1/day/'+date+'/'+date;
+            // const url = 'https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09'
+    
+                const response = await axios.get(url, { params });
+                console.log(Object.keys(response.data).length);
+                if(Object.keys(response.data).length===8){
+                    
+                    const data = response.data.results[0];
+                    console.log(data);
+                    res.send(data);
+                }
+    
+                else{
+                    console.log("WRONG TOKEN");
+                    res.sendStatus(404);
+                }
+            }
+            else{
+                console.log("DATE EXCEEDED");
+                res.sendStatus(404);
+            }
         }
         
             
