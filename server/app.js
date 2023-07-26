@@ -29,9 +29,6 @@ app.enable('trust proxy');
 app.post('/api/fetchStockData', async (req, res) => {
     // 8MGan1OR6p4CaL0sOFOLOBpazt57ArPL
     // YOUR CODE GOES HERE, PLEASE DO NOT EDIT ANYTHING OUTSIDE THIS FUNCTION
-    var restart = false;
-
-        restart = false;
         console.log(req.body);
         const {stock,date} = req.body;
         var token = stock.toUpperCase();
@@ -81,9 +78,7 @@ app.post('/api/fetchStockData', async (req, res) => {
                 console.log("DATE EXCEEDED");
                 res.sendStatus(404);
             }
-        }
-        
-            
+        }      
         
 });
 
