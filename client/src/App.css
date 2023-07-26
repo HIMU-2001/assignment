@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body{
-  background-color: lightblue;
+  background-color: #E4F6F8;
   /* background-image: url('https://source.unsplash.com/random/1920x1080/?stocks');
   background-repeat: no-repeat;
   background-size: cover; */
@@ -17,6 +17,9 @@ body{
 
 }
 .app{
+  position:absolute;
+  top:15%;
+  left:18%;
   background: #000000d0;
   padding: 1em;
   border-radius: 30px;
