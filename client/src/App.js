@@ -46,7 +46,7 @@ function App() {
       })
     } 
       catch (error) { 
-        console.log("HELLLLLOOOO");
+        console.log("ERROR AA GAYA");
         setFlag(0);
         console.log(error); 
       } }; 

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body{
-  background-color: #1a1a1c;
-  background-image: url('https://source.unsplash.com/random/1920x1080/?stocks');
+  background-color: lightblue;
+  /* background-image: url('https://source.unsplash.com/random/1920x1080/?stocks');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   color: #fff;
 }
 
@@ -61,6 +61,12 @@ body{
   color: #e2e2e2;
 }
 
+button:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
+}
 input[type="date"]::-webkit-calendar-picker-indicator {
   /* display: none;
   -webkit-appearance: none; */

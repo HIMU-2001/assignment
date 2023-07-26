@@ -29,21 +29,55 @@ app.enable('trust proxy');
 app.post('/api/fetchStockData', async (req, res) => {
     // 8MGan1OR6p4CaL0sOFOLOBpazt57ArPL
     // YOUR CODE GOES HERE, PLEASE DO NOT EDIT ANYTHING OUTSIDE THIS FUNCTION
+    var restart = false;
 
-    console.log(req.body);
-    const {stock,date} = req.body;
-    var token = stock.toUpperCase();
-    console.log(token);
-    const params = {
-        apiKey : 'zCTXIKq32nAGxSoCglU5JKAI2di9zHwW'
-    }
-    const url = 'https://api.polygon.io/v2/aggs/ticker/'+token+'/range/1/day/'+date+'/'+date;
-    // const url = 'https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09'
-    
-    const response = await axios.get(url, { params });
-    const data = response.data.results[0];
-    console.log(data);
-    res.send(data);
+        restart = false;
+        console.log(req.body);
+        const {stock,date} = req.body;
+        var token = stock.toUpperCase();
+        console.log(token);
+        const params = {
+            apiKey : '8MGan1OR6p4CaL0sOFOLOBpazt57ArPL'
+        }
+
+        
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1; // Months start at 0!
+        let dd = today.getDate();
+
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+
+        const formattedToday = yyyy+'-'+mm+'-'+dd;
+        console.log(formattedToday);
+
+
+        if(date<formattedToday){
+            const url = 'https://api.polygon.io/v2/aggs/ticker/'+token+'/range/1/day/'+date+'/'+date;
+        // const url = 'https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09'
+
+            const response = await axios.get(url, { params });
+            console.log(Object.keys(response.data).length);
+            if(Object.keys(response.data).length===8){
+                
+                const data = response.data.results[0];
+                console.log(data);
+                res.send(data);
+            }
+
+            else{
+                console.log("WRONG TOKEN");
+                res.sendStatus(404);
+            }
+        }
+        else{
+            console.log("DATE EXCEEDED");
+            res.sendStatus(404);
+        }
+        
+            
+        
 });
 
 const port = process.env.PORT || 5000;
